@@ -52,7 +52,7 @@ def reset():
 Expose the vulnerability by simulating some processing delay so
 that the vulnerability is easier to be exploited.
 """
-def expose_vulnerability():
+def log_transaction():
     # The larger the processing delay, the wider the race 
     # window, the 8 microseconds is somewhat arbitrary
     # time.sleep(PROCESSING_DELAY)
@@ -72,7 +72,7 @@ def prize():
     # Time of check (TOC in TOCTOU)
     if num_prizes > 0:
         start_time = time.time()
-        expose_vulnerability()
+        log_transaction()
         # Time of use (TOU in TOCTOU)
         end_time = time.time()
         elapsed_time = (end_time - start_time) * 1e3
